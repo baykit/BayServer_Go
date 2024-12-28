@@ -1,0 +1,58 @@
+[harbor]
+    groups plan/groups.plan
+    grandAgents 4
+    multiCore 1
+    timeout 20
+    #traceHeader on
+    [trouble]
+        404 text File Not Found
+
+#
+#  Port settings
+#
+[port 2020]
+     docker http
+
+[port 2024]
+    docker http
+    [secure]
+        key       cert/oreore_key.p8
+        cert      cert/oreore.crt
+
+#[port 2025]
+#     docker ajp
+
+#[port 2029]
+#     docker fcgi
+
+[city *]
+    [town /]
+        location www/root
+        welcome  index.html
+
+    [club *.php]
+        docker phpCgi
+
+    [town /cgi-demo/]
+        location www/cgi-demo
+        welcome  index.html
+        [club *.cgi]
+            docker cgi
+            timeout 20
+
+        [club *.php]
+            docker phpCgi
+
+
+        [reroute *]
+            docker wordpress
+
+
+    [log log/access.log]
+        format %h %l %u %t "%r" %>s %b
+
+    [log log/agent.log]
+        format %{User-Agent}i
+
+    [log log/referer.log]
+        format %{Referer}i -> %U
