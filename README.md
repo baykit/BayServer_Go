@@ -1,2 +1,1 @@
-# BayServer_Go
-BayServer for Go
+# BayServer_Go_priv
