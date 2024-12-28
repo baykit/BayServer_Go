@@ -1,0 +1,13 @@
+go 1.21
+
+toolchain go1.21.5
+
+use (
+	bayserver
+	bayserver-core
+	bayserver-docker-ajp
+	bayserver-docker-fcgi
+	bayserver-docker-http
+	bayserver-docker-cgi
+	bayserver-docker-wordpress
+)

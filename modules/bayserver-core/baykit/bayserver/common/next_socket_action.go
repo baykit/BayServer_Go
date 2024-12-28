@@ -1,0 +1,11 @@
+package common
+
+type NextSocketAction int
+
+const (
+	NEXT_SOCKET_ACTION_CONTINUE = 1
+	NEXT_SOCKET_ACTION_SUSPEND  = 2
+	NEXT_SOCKET_ACTION_READ     = 3
+	NEXT_SOCKET_ACTION_WRITE    = 4
+	NEXT_SOCKET_ACTION_CLOSE    = 5
+)

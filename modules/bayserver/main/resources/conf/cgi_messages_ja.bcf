@@ -1,0 +1,5 @@
+#
+# CGI errors
+#
+
+CFG_CGI_MULTIPLEXER_NOT_SUPPORTED    このプラットフォームのCGIマルチプレクサとして"%s"はサポートされません。"%s"を使用します。

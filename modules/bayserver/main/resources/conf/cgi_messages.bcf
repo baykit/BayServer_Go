@@ -1,0 +1,5 @@
+#
+# CGI errors
+#
+
+CFG_CGI_MULTIPLEXER_NOT_SUPPORTED    CGI multiplexer "%s" not supported on this platform. "%s" is used.
