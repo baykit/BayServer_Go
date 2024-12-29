@@ -43,6 +43,7 @@ build_for_os() {
     echo "Copying files"
     mkdir $output_dir/plan
     cp -r stage/* $output_dir
+    cp LICENSE.BAYKIT NEWS.md README.md ${output_dir}
 
     cd /tmp
     if [ "${os}" = "windows" ]; then
