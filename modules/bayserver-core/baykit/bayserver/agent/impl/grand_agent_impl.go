@@ -10,6 +10,7 @@ import (
 	exception2 "bayserver-core/baykit/bayserver/common/exception"
 	"bayserver-core/baykit/bayserver/docker"
 	"bayserver-core/baykit/bayserver/rudder"
+	"bayserver-core/baykit/bayserver/rudder/impl"
 	"bayserver-core/baykit/bayserver/symbol"
 	"bayserver-core/baykit/bayserver/util/arrayutil"
 	"bayserver-core/baykit/bayserver/util/baylog"
@@ -486,7 +487,9 @@ func (g *GrandAgentImpl) onError(let *letter.ErrorLetter) exception.Exception {
 		} else {
 			baylog.ErrorE(ex, "Error letter")
 		}
-		g.nextAction(st, common.NEXT_SOCKET_ACTION_CLOSE, true)
+		if _, ok := st.Rudder.(*impl.ListenerRudder); !ok {
+			g.nextAction(st, common.NEXT_SOCKET_ACTION_CLOSE, true)
+		}
 		return nil
 
 	} else if _, ok := ex.(exception.IOException); ok {
@@ -495,7 +498,9 @@ func (g *GrandAgentImpl) onError(let *letter.ErrorLetter) exception.Exception {
 		} else {
 			baylog.ErrorE(ex, "Error letter")
 		}
-		g.nextAction(st, common.NEXT_SOCKET_ACTION_CLOSE, true)
+		if _, ok := st.Rudder.(*impl.ListenerRudder); !ok {
+			g.nextAction(st, common.NEXT_SOCKET_ACTION_CLOSE, true)
+		}
 		return nil
 
 	} else {
