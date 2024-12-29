@@ -41,13 +41,14 @@ func OpenLocalPipe() ([]rudder.Rudder, exception.IOException) {
 	if lis != nil {
 		_ = lis.Close()
 	}
-	if con1 != nil {
-		_ = con1.Close()
-	}
-	if con2 != nil {
-		_ = con2.Close()
-	}
-
+	/*
+		if con1 != nil {
+			_ = con1.Close()
+		}
+		if con2 != nil {
+			_ = con2.Close()
+		}
+	*/
 	if ioerr != nil {
 		return nil, ioerr
 	}
