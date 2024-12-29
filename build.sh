@@ -45,7 +45,12 @@ build_for_os() {
     cp -r stage/* $output_dir
 
     cd /tmp
-    tar czf ${output_name}.tgz ${output_name}
+    if [ "${os}" = "windows" ]; then
+      echo zip ${output_name}.zip ${output_name}
+      zip -r ${output_name}.zip ${output_name}
+    else
+      tar czf ${output_name}.tgz ${output_name}
+    fi
 
     popd
 }
