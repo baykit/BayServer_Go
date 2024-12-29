@@ -31,22 +31,22 @@ func handleCommand(cmd string) {
 	var ioerr exception.IOException = nil
 	for { // try-catch
 		switch strings.ToLower(cmd) {
-		case SIGNAL_AGENT_COMMAND_RELOAD_CERT:
+		case SIGN_AGENT_COMMAND_RELOAD_CERT:
 			ioerr = agent.ReloadCertAll()
 
-		case SIGNAL_AGENT_COMMAND_MEM_USAGE:
+		case SIGN_AGENT_COMMAND_MEM_USAGE:
 			agent.PrintUsageAll()
 
-		case SIGNAL_AGENT_COMMAND_RESTART_AGENTS:
+		case SIGN_AGENT_COMMAND_RESTART_AGENTS:
 			ioerr = agent.RestartAll()
 			if ioerr != nil {
 				baylog.ErrorE(ioerr, "")
 			}
 
-		case SIGNAL_AGENT_COMMAND_SHUTDOWN:
+		case SIGN_AGENT_COMMAND_SHUTDOWN:
 			ioerr = agent.ShutdownAll()
 
-		case SIGNAL_AGENT_COMMAND_ABORT:
+		case SIGN_AGENT_COMMAND_ABORT:
 			os.Exit(1)
 
 		default:

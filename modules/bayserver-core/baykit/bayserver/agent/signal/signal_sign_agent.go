@@ -6,11 +6,11 @@ import (
 	"os/signal"
 )
 
-const SIGNAL_AGENT_COMMAND_RELOAD_CERT = "reloadcert"
-const SIGNAL_AGENT_COMMAND_MEM_USAGE = "memusage"
-const SIGNAL_AGENT_COMMAND_RESTART_AGENTS = "restartagents"
-const SIGNAL_AGENT_COMMAND_SHUTDOWN = "shutdown"
-const SIGNAL_AGENT_COMMAND_ABORT = "abort"
+const SIGN_AGENT_COMMAND_RELOAD_CERT = "reloadcert"
+const SIGN_AGENT_COMMAND_MEM_USAGE = "memusage"
+const SIGN_AGENT_COMMAND_RESTART_AGENTS = "restartagents"
+const SIGN_AGENT_COMMAND_SHUTDOWN = "shutdown"
+const SIGN_AGENT_COMMAND_ABORT = "abort"
 
 type SignalSignAgent struct {
 }

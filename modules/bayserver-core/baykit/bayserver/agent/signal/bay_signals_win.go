@@ -9,8 +9,8 @@ import (
 )
 
 var signalMap = map[os.Signal]string{
-	os.Interrupt:    SIGNAL_AGENT_COMMAND_MEM_USAGE,
-	syscall.SIGTERM: SIGNAL_AGENT_COMMAND_SHUTDOWN,
+	os.Interrupt:    SIGN_AGENT_COMMAND_MEM_USAGE,
+	syscall.SIGTERM: SIGN_AGENT_COMMAND_SHUTDOWN,
 }
 
 type BaySignals struct {

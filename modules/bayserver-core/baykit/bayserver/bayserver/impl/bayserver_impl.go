@@ -107,19 +107,19 @@ func Main(args []string) {
 			cmd = ""
 
 		} else if strings.EqualFold(arg, "-stop") || strings.EqualFold(arg, "-shutdown") {
-			cmd = signal.SIGNAL_AGENT_COMMAND_SHUTDOWN
+			cmd = signal.SIGN_AGENT_COMMAND_SHUTDOWN
 
 		} else if strings.EqualFold(arg, "-restartAgents") {
-			cmd = signal.SIGNAL_AGENT_COMMAND_RESTART_AGENTS
+			cmd = signal.SIGN_AGENT_COMMAND_RESTART_AGENTS
 
 		} else if strings.EqualFold(arg, "-reloadCert") {
-			cmd = signal.SIGNAL_AGENT_COMMAND_RELOAD_CERT
+			cmd = signal.SIGN_AGENT_COMMAND_RELOAD_CERT
 
 		} else if strings.EqualFold(arg, "-memUsage") {
-			cmd = signal.SIGNAL_AGENT_COMMAND_MEM_USAGE
+			cmd = signal.SIGN_AGENT_COMMAND_MEM_USAGE
 
 		} else if strings.EqualFold(arg, "-abort") {
-			cmd = signal.SIGNAL_AGENT_COMMAND_ABORT
+			cmd = signal.SIGN_AGENT_COMMAND_ABORT
 
 		} else if strings.EqualFold(arg, "-init") {
 			init = true

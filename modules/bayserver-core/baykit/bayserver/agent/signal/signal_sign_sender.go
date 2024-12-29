@@ -8,7 +8,7 @@ type SignalSignSender struct {
 	pid int
 }
 
-func NewUnixSignalSender(pid int) *SignalSignSender {
+func NewSignalSignalSender(pid int) *SignalSignSender {
 	return &SignalSignSender{pid: pid}
 }
 

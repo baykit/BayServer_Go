@@ -10,12 +10,12 @@ import (
 	"strconv"
 )
 
-type TcpSignalSender struct {
+type TcpSignSender struct {
 	port int
 }
 
-func NewTcpSignalSender(port int) *TcpSignalSender {
-	return &TcpSignalSender{
+func NewTcpSignSender(port int) *TcpSignSender {
+	return &TcpSignSender{
 		port: port,
 	}
 }
@@ -24,7 +24,7 @@ func NewTcpSignalSender(port int) *TcpSignalSender {
  * Send running BayServer a command
  */
 
-func (s *TcpSignalSender) SendCommand(cmd string) exception.IOException {
+func (s *TcpSignSender) SendCommand(cmd string) exception.IOException {
 	var ioerr exception.IOException = nil
 
 	baylog.Debug(baymessage.Get(symbol.MSG_SENDING_COMMAND, cmd))
@@ -36,7 +36,7 @@ func (s *TcpSignalSender) SendCommand(cmd string) exception.IOException {
  * Send another BayServer running host:port a command
  */
 
-func (s *TcpSignalSender) send(host string, port int, cmd string) exception.IOException {
+func (s *TcpSignSender) send(host string, port int, cmd string) exception.IOException {
 	var ioerr exception.IOException = nil
 	for {
 		// try catch

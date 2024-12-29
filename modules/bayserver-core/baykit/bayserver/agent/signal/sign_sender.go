@@ -47,10 +47,10 @@ func SendSign(cmd string) exception.IOException {
 				break
 			}
 
-			sender = NewUnixSignalSender(pid)
+			sender = NewSignalSignalSender(pid)
 
 		} else {
-			sender = NewTcpSignalSender(bayPort)
+			sender = NewTcpSignSender(bayPort)
 		}
 
 		ioerr = sender.SendCommand(cmd)
