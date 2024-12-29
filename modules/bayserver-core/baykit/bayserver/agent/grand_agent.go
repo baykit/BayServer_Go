@@ -21,6 +21,7 @@ type GrandAgent interface {
 	MaxInboundShips() int
 	NetMultiplexer() common.Multiplexer
 	JobMultiplexer() common.Multiplexer
+	CommandReceiver() *CommandReceiver
 	Aborted() bool
 
 	Shutdown()

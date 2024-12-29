@@ -98,6 +98,9 @@ func (h *MultiplexerBase) FindRudderState(rd rudder.Rudder) *common.RudderState 
 
 func (h *MultiplexerBase) closeAll() {
 	for _, st := range h.rudders {
+		if st.Rudder == h.agent.CommandReceiver().Rudder() {
+			continue
+		}
 		h.CloseRudder(st)
 	}
 }

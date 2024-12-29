@@ -168,7 +168,7 @@ func Main(args []string) {
 				err = start()
 
 			} else {
-				err = signal.NewSignalSender().SendCommand(cmd)
+				err = signal.SendSign(cmd)
 			}
 			if err != nil {
 				break

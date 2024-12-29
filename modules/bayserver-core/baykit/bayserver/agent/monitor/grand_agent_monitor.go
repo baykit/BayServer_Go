@@ -58,8 +58,12 @@ func (gm *GrandAgentMonitor) Start() {
 		for { // loop
 
 			var res int32
-			res, ioerr = ioutil.ReadInt32(gm.comSocket)
+			var eof bool
+			res, eof, ioerr = ioutil.ReadInt32(gm.comSocket)
 			if ioerr != nil {
+				break
+			}
+			if eof {
 				break
 			}
 			if res == agent.CMD_CLOSE {

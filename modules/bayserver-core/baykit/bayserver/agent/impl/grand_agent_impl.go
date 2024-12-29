@@ -215,6 +215,10 @@ func (g *GrandAgentImpl) JobMultiplexer() common.Multiplexer {
 	return g.jobMultiplexer
 }
 
+func (g *GrandAgentImpl) CommandReceiver() *agent.CommandReceiver {
+	return g.commandReceiver
+}
+
 func (g *GrandAgentImpl) Aborted() bool {
 	return g.aborted
 }

@@ -7,18 +7,22 @@ import (
 	"encoding/binary"
 )
 
-func ReadInt32(rd rudder.Rudder) (int32, exception.IOException) {
+func ReadInt32(rd rudder.Rudder) (int32, bool, exception.IOException) {
 	buf := make([]byte, 4)
 
 	n, err := rd.Read(buf)
 	if err != nil {
-		return -1, exception.NewIOExceptionFromError(err)
+		return -1, false, exception.NewIOExceptionFromError(err)
+	}
+	if n == 0 {
+		// EOF
+		return -1, true, nil
 	}
 	if n != 4 {
-		return -1, exception.NewIOException("No enough data")
+		return -1, false, exception.NewIOException("No enough data")
 	}
 
-	return int32(binary.BigEndian.Uint32(buf)), nil
+	return int32(binary.BigEndian.Uint32(buf)), false, nil
 }
 
 func WriteInt32(rd rudder.Rudder, val int32) exception.IOException {
