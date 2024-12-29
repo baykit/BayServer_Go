@@ -29,8 +29,15 @@ build_for_os() {
     echo "Compiling Go files"
     pushd .
     cd modules/bayserver/main
-    GOOS=$os GOARCH=$arc go build -o $output_dir/bin/bayserver
-    GOOS=$os GOARCH=$arc go build -gcflags "all-=N -l" -o $output_dir/bin/bayserver.dbg
+
+    if [ "${os}" = "windows" ]; then
+       bin_name=bayserver.exe
+    else
+       bin_name=bayserver
+    fi
+
+    GOOS=$os GOARCH=$arc go build -o $output_dir/bin/${bin_name}
+#    GOOS=$os GOARCH=$arc go build -gcflags "all-=N -l" -o $output_dir/bin/bayserver.dbg
     popd
 
     echo "Copying files"
