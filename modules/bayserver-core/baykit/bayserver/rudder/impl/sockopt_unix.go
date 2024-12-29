@@ -8,15 +8,6 @@ import (
 	"syscall"
 )
 
-func (rd *TcpConnRudder) GetSocketReceiveBufferSize() (int, exception.IOException) {
-	size, ioerr := getSockOpt(rd.Conn, syscall.SOL_SOCKET, syscall.SO_RCVBUF)
-	if ioerr != nil {
-		return -1, ioerr
-	}
-
-	return size, nil
-}
-
 func getSockOpt(conn net.Conn, level, opt int) (int, exception.IOException) {
 	if tcpCon, ok := conn.(*net.TCPConn); ok {
 		var value int

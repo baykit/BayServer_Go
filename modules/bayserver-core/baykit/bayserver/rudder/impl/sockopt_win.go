@@ -3,9 +3,15 @@
 package impl
 
 import (
+	"bayserver-core/baykit/bayserver/util/exception"
 	"syscall"
 )
 
-func GetSockOpt(fd, level, opt int) (int, error) {
-	return syscall.GetsockoptInt(syscall.Handle(fd), level, opt)
+func getSockOptInt(fd int, level, opt int) (int, exception.IOException) {
+	val, err := syscall.GetsockoptInt(syscall.Handle(fd), level, opt)
+	if err != nil {
+		return 0, exception.NewIOExceptionFromError(err)
+	}
+
+	return val, nil
 }
