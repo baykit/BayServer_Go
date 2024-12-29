@@ -235,4 +235,8 @@ func agentAborted(agtId int, anchorable bool) {
 			}
 		}
 	}
+
+	if finale && len(monitors) == 0 {
+		os.Exit(0)
+	}
 }

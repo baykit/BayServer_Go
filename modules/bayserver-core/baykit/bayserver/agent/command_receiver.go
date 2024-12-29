@@ -109,6 +109,10 @@ catch:
 		}
 
 		ioerr = c.SendCommandToMonitor(agent, CMD_OK, false)
+
+		if cmd == CMD_SHUTDOWN {
+			c.End()
+		}
 		break
 	}
 
